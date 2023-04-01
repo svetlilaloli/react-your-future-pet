@@ -1,4 +1,4 @@
-import configData from '../../config.json';
+import configData from '../config.json';
 import * as request from './requester';
 
 const host = process.env.NODE_ENV === 'development'
