@@ -1,6 +1,10 @@
+import configData from '../../config.json';
 import * as request from './requester';
 
-const baseUrl = 'http://localhost:3030/data/pets';
+const host = process.env.NODE_ENV === 'development'
+    ? configData.devHost
+    : configData.host;
+const baseUrl = `${host}/data/pets`;
 
 export async function getAll() {
     const result = await request.get(baseUrl);

@@ -1,6 +1,10 @@
+import configData from '../../config.json';
 import * as request from './requester';
 
-const baseUrl = 'http://localhost:3030/users';
+const host = process.env.NODE_ENV === 'development'
+    ? configData.devHost
+    : configData.host;
+const baseUrl = `${host}/users`;
 
 export function login(data){
     return request.post(`${baseUrl}/login`, data);
