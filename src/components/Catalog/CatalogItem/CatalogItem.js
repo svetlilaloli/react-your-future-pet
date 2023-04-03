@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export function CatalogItem({
-    id,
+    _id,
     name,
     image
 }) {
@@ -11,7 +11,7 @@ export function CatalogItem({
                 <img className="card-img-top" src={image} alt="pet" />
                 <div className="card-body">
                     <h3 className="card-title">{name}</h3>
-                    <Link className="btn btn-primary btn-xl" to={`/catalog/${id}`}>Details</Link>
+                    <Link className="btn btn-primary btn-xl" to={`/catalog/${_id}`}>Details</Link>
                 </div>
             </div>
         </div>

@@ -2,15 +2,11 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
 
-const LoginFormKeys = {
-    Email: 'email',
-    Password: 'password'
-}
 export function Login() {
     const { onLoginSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
-        [LoginFormKeys.Email]: '',
-        [LoginFormKeys.Password]: ''
+        email: '',
+        password: ''
     }, onLoginSubmit);
 
     return (
@@ -28,8 +24,8 @@ export function Login() {
                                                    id="email" 
                                                    className="form-control" 
                                                    placeholder="Email"
-                                                   name={LoginFormKeys.Email} 
-                                                   value={values[LoginFormKeys.Email]} 
+                                                   name="email" 
+                                                   value={values.email} 
                                                    onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
@@ -37,8 +33,8 @@ export function Login() {
                                                    id="password" 
                                                    className="form-control"
                                                    placeholder="Password" 
-                                                   name={LoginFormKeys.Password} 
-                                                   value={values[LoginFormKeys.Password]} 
+                                                   name="password" 
+                                                   value={values.password} 
                                                    onChange={changeHandler} />
                                         </div>
                                         <button className="btn btn-primary btn-xl" type="submit">Login</button>

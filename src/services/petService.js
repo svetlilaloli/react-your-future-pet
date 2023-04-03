@@ -1,33 +1,41 @@
-import configData from '../config.json';
-import * as request from './requester';
+import { requestFactory } from './requester';
 
-const host = process.env.NODE_ENV === 'development'
-    ? configData.devHost
-    : configData.host;
-const baseUrl = `${host}/data/pets`;
+const baseUrl = 'http://localhost:3030/data/pets';
 
-export async function getAll() {
-    const result = await request.get(baseUrl);
-    const pets = Object.values(result);
+export const petServiceFactory = (token) => {
+    const request = requestFactory(token);
 
-    return pets;
-}
+    const getAll = async () => {
+        const result = await request.get(baseUrl);
+        const pets = Object.values(result);
+    
+        return pets;
+    };
+    
+    const getOne = async (petId) => {
+        const result = await request.get(`${baseUrl}/${petId}`);
+    
+        return result;
+    };
+    
+    const create = async (petData) => {
+        const result = await request.post(baseUrl, petData);
+    
+        console.log(result);
+    
+        return result;
+    };
+    
+    const edit = (petId, data) => request.put(`${baseUrl}/${petId}`, data);
 
-export async function getOne(id) {
-    const pet = await request.get(`${baseUrl}/${id}`);
-    return pet;
-}
+    const deletepet = (petId) => request.delete(`${baseUrl}/${petId}`);
 
-export async function add(token, data) {
-    const pet = await request.post(baseUrl, token, data);
-    return pet;
-}
 
-export async function edit(id, data) {
-    const pet = await request.patch(`${baseUrl}/${id}`, data);
-    return pet;
-}
-
-export async function remove(id) {
-    await request.remove(`${baseUrl}/${id}`);
+    return {
+        getAll,
+        getOne,
+        create,
+        edit,
+        delete: deletepet,
+    };
 }

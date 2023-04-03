@@ -1339,17 +1339,17 @@
                 "name": "Max",
                 "breed": "Shiba Inu",
                 "age": "2 years",
-                "weight": "5kg",
-                "image": "../images/Shiba-Inu.png",
+                "weight": "5 kg",
+                "image": "https://i3.wp.com/g.foolcdn.com/editorial/images/721820/shiba-inu-dog-doge-dogecoin-1.jpeg",
                 "_createdOn": 1617194128618
             },
             "1840a313-225c-416a-817a-9954d4609f7c": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "name": "Athena",
                 "breed": "American Curl",
-                "age": "1 year",
-                "weight": "3kg",
-                "image": "../images/cat2.jpg",
+                "age": "4 year",
+                "weight": "3 kg",
+                "image": "https://thumbs.dreamstime.com/b/american-curl-kitten-months-old-sitting-looking-c-american-curl-kitten-months-old-sitting-looking-camera-103837703.jpg",
                 "_createdOn": 1617194210928
             },
             "126777f5-3277-42ad-b874-76d043b069cb": {
@@ -1357,8 +1357,8 @@
                 "name": "Apollo",
                 "breed": "Pug",
                 "age": "3 years",
-                "weight": "4kg",
-                "image": "../images/dog2.jpg",
+                "weight": "7 kg",
+                "image": "https://www.montego.co.za/wp-content/uploads/2018/01/blog-thumbnail-two-pug.jpg",
                 "_createdOn": 1617194295474
             },
             "136777f5-3277-42ad-b874-76d043b069cb": {
@@ -1366,9 +1366,18 @@
                 "name": "Chibi",
                 "breed": "Teddy guinea pig",
                 "age": "1 years",
-                "weight": "1kg",
-                "image": "../images/guinea-pig.jpg",
+                "weight": "1 kg",
+                "image": "https://petkeen.com/wp-content/uploads/2021/01/guinea-pig-pixabay-4.jpg",
                 "_createdOn": 1617194295480
+            },
+            "146777f5-3277-42ad-b874-76d043b069cb": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Sharo",
+                "breed": "Stray",
+                "age": "2 years",
+                "weight": "8 kg",
+                "image": "https://static.wixstatic.com/media/204769_2c02264f965f4264a596f095111344f2~mv2.jpg/v1/fill/w_560,h_294,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Puppys%203.jpg",
+                "_createdOn": 1617194295490
             }
         },
         donation: {}

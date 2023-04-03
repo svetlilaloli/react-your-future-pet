@@ -2,18 +2,12 @@ import { useContext } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 
-const RegisterFormKeys = {
-    Email: 'email',
-    Password: 'password',
-    RepeatPassword: 'repeatPassword'
-}
-
 export function Register() {
     const { onRegisterSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
-        [RegisterFormKeys.Email]: '',
-        [RegisterFormKeys.Password]: '',
-        [RegisterFormKeys.RepeatPassword]: ''
+        email: '',
+        password: '',
+        repeatPassword: ''
     }, onRegisterSubmit);
 
     return (
@@ -31,8 +25,8 @@ export function Register() {
                                                    id="email" 
                                                    className="form-control" 
                                                    placeholder="Email"
-                                                   name={RegisterFormKeys.Email} 
-                                                   value={values[RegisterFormKeys.Email]} 
+                                                   name="email"
+                                                   value={values.email} 
                                                    onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
@@ -40,8 +34,8 @@ export function Register() {
                                                    id="password" 
                                                    className="form-control" 
                                                    placeholder="Password"
-                                                   name={RegisterFormKeys.Password} 
-                                                   value={values[RegisterFormKeys.Password]} 
+                                                   name="password" 
+                                                   value={values.password} 
                                                    onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
@@ -49,8 +43,8 @@ export function Register() {
                                                    id="repeatPasswor" 
                                                    className="form-control"  
                                                    placeholder="Repeat password"
-                                                   name={RegisterFormKeys.RepeatPassword} 
-                                                   value={values[RegisterFormKeys.RepeatPassword]} 
+                                                   name="repeatPassword" 
+                                                   value={values.repeatPassword} 
                                                    onChange={changeHandler} />
                                         </div>
                                         <button className="btn btn-primary btn-xl" type="submit">Register</button>

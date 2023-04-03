@@ -1,4 +1,4 @@
 {
-    "host": "https://react-your-future-pet.web.app",
+    "host": "http://localhost:3030",
     "devHost": "http://localhost:3030"
 }

@@ -1,19 +1,13 @@
-import configData from '../config.json';
-import * as request from './requester';
+import { requestFactory } from './requester';
 
-const host = process.env.NODE_ENV === 'development'
-    ? configData.devHost
-    : configData.host;
-const baseUrl = `${host}/users`;
+const baseUrl = `http://localhost:3030/users`;
 
-export function login(data){
-    return request.post(`${baseUrl}/login`, data);
-}
+export const authServiceFactory = (token) => {
+    const request = requestFactory(token);
 
-export function register(data){
-    return request.post(`${baseUrl}/register`, data);
-}
-
-export function logout(){
-    return request.get(`${baseUrl}/logout`);
-}
+    return {
+        login: (data) => request.post(`${baseUrl}/login`, data),
+        register: (data) => request.post(`${baseUrl}/register`, data),
+        logout: () => request.get(`${baseUrl}/logout`),
+    }
+};

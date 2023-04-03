@@ -1,8 +1,8 @@
 import { CatalogItem } from './CatalogItem/CatalogItem';
+import {usePetContext} from '../../contexts/PetContext';
 
-export function Catalog({
-    pets
-}) {
+export function Catalog() {
+    const { pets } = usePetContext();
     return (
         <section className="page-section">
             <div className="container px-4 px-lg-5">
