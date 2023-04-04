@@ -24,11 +24,11 @@ export default function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/login' element={<Login />} />
-                    <Route path='/register' element={<Register />} />
+                    <Route path='/register' element={<RouteGuard><Register /></RouteGuard>} />
                     <Route path='/catalog' element={<Catalog />} />
-                    <Route path='/add' element={<Add />} />
+                    <Route path='/add' element={<RouteGuard><Add /></RouteGuard>} />
                     <Route path='/catalog/:petId' element={<Details />} />
-                    <Route path='/catalog/:petId/edit' element={<Edit />} />
+                    <Route path='/catalog/:petId/edit' element={<RouteGuard><Edit /></RouteGuard>} />
                     <Route path='/logout' element={<Logout />} />
                 </Routes>
                 <Footer />

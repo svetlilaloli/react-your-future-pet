@@ -1,6 +1,10 @@
+import configData from '../config.json';
 import { requestFactory } from './requester';
 
-const baseUrl = `http://localhost:3030/users`;
+const host = process.env.NODE_ENV === 'development'
+    ? configData.devHost
+    : configData.host;
+const baseUrl = `${host}/users`;
 
 export const authServiceFactory = (token) => {
     const request = requestFactory(token);

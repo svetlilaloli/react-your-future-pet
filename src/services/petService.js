@@ -1,6 +1,10 @@
+import configData from '../config.json';
 import { requestFactory } from './requester';
 
-const baseUrl = 'http://localhost:3030/data/pets';
+const host = process.env.NODE_ENV === 'development'
+    ? configData.devHost
+    : configData.host;
+const baseUrl = `${host}/data/pets`;
 
 export const petServiceFactory = (token) => {
     const request = requestFactory(token);
@@ -28,7 +32,7 @@ export const petServiceFactory = (token) => {
     
     const edit = (petId, data) => request.put(`${baseUrl}/${petId}`, data);
 
-    const deletepet = (petId) => request.delete(`${baseUrl}/${petId}`);
+    const deletePet = (petId) => request.delete(`${baseUrl}/${petId}`);
 
 
     return {
@@ -36,6 +40,6 @@ export const petServiceFactory = (token) => {
         getOne,
         create,
         edit,
-        delete: deletepet,
+        delete: deletePet,
     };
 }
