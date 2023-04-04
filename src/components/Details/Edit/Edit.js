@@ -1,10 +1,12 @@
-import { useService, useParams, useEffect } from 'react';
-import { usePetContext } from '../../../contexts/PetContext';
+import { useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import { petServiceFactory } from '../../../services/petService';
+import { usePetContext } from '../../../contexts/PetContext';
 import { useForm } from '../../../hooks/useForm';
+import { useService } from "../../../hooks/useService";
 
 export function Edit() {
-    const { onPetEditSubmit } = usePetContext();
+    const { onEditSubmit } = usePetContext();
     const { petId } = useParams();
     const petService = useService(petServiceFactory);
     const { values, changeHandler, onSubmit, updateValues } = useForm({
@@ -15,7 +17,7 @@ export function Edit() {
         weight: '',
         image: '',
         summary: '',
-    }, onPetEditSubmit);
+    }, onEditSubmit);
 
     useEffect(() => {
         petService.getOne(petId)
