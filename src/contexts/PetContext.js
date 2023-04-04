@@ -21,7 +21,7 @@ export const PetProvider = ({
             })
     }, []);
 
-    const onCreatePetSubmit = async (data) => {
+    const onAddSubmit = async (data) => {
         const newPet = await petService.create(data);
 
         setPets(state => [...state, newPet]);
@@ -29,7 +29,7 @@ export const PetProvider = ({
         navigate('/catalog');
     };
 
-    const onPetEditSubmit = async (values) => {
+    const onEditSubmit = async (values) => {
         const result = await petService.edit(values._id, values);
 
         setPets(state => state.map(x => x._id === values._id ? result : x))
@@ -60,8 +60,8 @@ export const PetProvider = ({
 
     const context = {
         pets,
-        onCreatePetSubmit,
-        onPetEditSubmit,
+        onAddSubmit,
+        onEditSubmit,
         deletePet,
         getPet,
     };

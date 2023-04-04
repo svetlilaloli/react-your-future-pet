@@ -1,26 +1,16 @@
-import { useState } from "react";
+import { usePetContext } from '../../contexts/PetContext';
+import { useForm } from '../../hooks/useForm';
 
-export function Add({
-    onAddSubmit,
-}) {
-    const [values, setValues] = useState({
+export function Add() {
+    const { onAddSubmit } = usePetContext();
+    const { values, changeHandler, onSubmit } = useForm({
         name: '',
         breed: '',
         age: '',
         weight: '',
         image: '',
         description: ''
-    });
-
-    const onChangeHandler = (e) => {
-        setValues(state => ({ ...state, [e.target.name]: e.target.value }))
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        onAddSubmit(values);
-    }
-
+    }, onAddSubmit);
     return (
         <section className="page-section bg-primary">
             <div className="container py-5 h-100">
@@ -38,7 +28,7 @@ export function Add({
                                                 placeholder="Name"
                                                 name="name"
                                                 value={values.name}
-                                                onChange={onChangeHandler} />
+                                                onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
                                             <input type="text"
@@ -47,7 +37,7 @@ export function Add({
                                                 placeholder="Breed"
                                                 name="breed"
                                                 value={values.breed}
-                                                onChange={onChangeHandler} />
+                                                onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
                                             <input type="text"
@@ -56,7 +46,7 @@ export function Add({
                                                 placeholder="Age"
                                                 name="age"
                                                 value={values.age}
-                                                onChange={onChangeHandler} />
+                                                onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
                                             <input type="text"
@@ -65,7 +55,7 @@ export function Add({
                                                 placeholder="Weight"
                                                 name="weight"
                                                 value={values.weight}
-                                                onChange={onChangeHandler} />
+                                                onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
                                             <input type="text"
@@ -74,7 +64,7 @@ export function Add({
                                                 placeholder="Image link"
                                                 name="image"
                                                 value={values.image}
-                                                onChange={onChangeHandler} />
+                                                onChange={changeHandler} />
                                         </div>
                                         <div className="form-outline form-white mb-4">
                                             <textarea rows="5"
@@ -83,7 +73,7 @@ export function Add({
                                                 placeholder="Description ..."
                                                 name="description"
                                                 value={values.description}
-                                                onChange={onChangeHandler} />
+                                                onChange={changeHandler} />
                                         </div>
                                         <button className="btn btn-primary btn-xl" type="submit">Add</button>
                                     </form>
