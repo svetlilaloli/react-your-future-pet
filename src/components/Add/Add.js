@@ -9,7 +9,7 @@ export function Add() {
         age: '',
         weight: '',
         image: '',
-        description: ''
+        summary: ''
     }, onAddSubmit);
     return (
         <section className="page-section bg-primary">
@@ -68,11 +68,11 @@ export function Add() {
                                         </div>
                                         <div className="form-outline form-white mb-4">
                                             <textarea rows="5"
-                                                id="description"
+                                                id="summary"
                                                 className="form-control"
-                                                placeholder="Description ..."
-                                                name="description"
-                                                value={values.description}
+                                                placeholder="Summary ..."
+                                                name="summary"
+                                                value={values.summary}
                                                 onChange={changeHandler} />
                                         </div>
                                         <button className="btn btn-primary btn-xl" type="submit">Add</button>

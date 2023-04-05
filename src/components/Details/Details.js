@@ -2,12 +2,14 @@ import { useState, useEffect, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { petServiceFactory } from '../../services/petService';
 import { useService } from '../../hooks/useService';
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
+import { usePetContext } from "../../contexts/PetContext";
 
 export function Details() {
-    const { userId, isAuthenticated } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useAuthContext();
     const [username, setUsername] = useState('');
     const { petId } = useParams();
+    const { deletePet } = usePetContext();
     const [pet, setPet] = useState({});
     const petService = useService(petServiceFactory);
     const navigate = useNavigate();
@@ -19,14 +21,15 @@ export function Details() {
             })
     }, [petId])
 
-    const isOwner = pet._ownerId === userId;
-
     const onDeleteClick = async () => {
-        await petService.delete(pet._id);
+        // eslint-disable-next-line no-restricted-globals
+        const result = confirm(`Are you sure you want to delete ${pet.name}`);
 
-        // TODO: delete from state
-
-        navigate('/catalog');
+        if (result) {
+            await petService.delete(pet._id);
+            deletePet(pet._id);
+            navigate('/catalog');
+        }
     };
     return (
         <section className="page-section bg-primary vh-75">

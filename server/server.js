@@ -1201,8 +1201,8 @@
         const rules = Object.assign({
             '*': {
                 '.create': ['User'],
-                '.update': ['Owner'],
-                '.delete': ['Owner']
+                '.update': ['User'],
+                '.delete': ['User']
             }
         }, settings.rules);
 
@@ -1341,6 +1341,7 @@
                 "age": "2 years",
                 "weight": "5 kg",
                 "image": "https://i3.wp.com/g.foolcdn.com/editorial/images/721820/shiba-inu-dog-doge-dogecoin-1.jpeg",
+                "summary": "Although he loves to play ball, he has a great nose for treats and we can guarantee he will want a walk no matter what the weather is like.",
                 "_createdOn": 1617194128618
             },
             "1840a313-225c-416a-817a-9954d4609f7c": {
@@ -1350,33 +1351,37 @@
                 "age": "4 year",
                 "weight": "3 kg",
                 "image": "https://thumbs.dreamstime.com/b/american-curl-kitten-months-old-sitting-looking-c-american-curl-kitten-months-old-sitting-looking-camera-103837703.jpg",
+                "summary": "Athena is best suited to a home with no other animals or any children as she is very nervous of new people so a quiet home would be best.",
                 "_createdOn": 1617194210928
             },
             "126777f5-3277-42ad-b874-76d043b069cb": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "name": "Apollo",
                 "breed": "Pug",
                 "age": "3 years",
                 "weight": "7 kg",
                 "image": "https://www.montego.co.za/wp-content/uploads/2018/01/blog-thumbnail-two-pug.jpg",
+                "summary": "He would be best suited in an adult only home where the owner is around a lot to spend time with him. Apollo is an intelligent boy who does already know basic commands and loves to play with balls.",
                 "_createdOn": 1617194295474
             },
             "136777f5-3277-42ad-b874-76d043b069cb": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "name": "Chibi",
                 "breed": "Teddy guinea pig",
                 "age": "1 years",
                 "weight": "1 kg",
                 "image": "https://petkeen.com/wp-content/uploads/2021/01/guinea-pig-pixabay-4.jpg",
+                "summary": "Chibi has lots of energy, likes to play and sniff.",
                 "_createdOn": 1617194295480
             },
             "146777f5-3277-42ad-b874-76d043b069cb": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "name": "Sharo",
                 "breed": "Stray",
                 "age": "2 years",
                 "weight": "8 kg",
                 "image": "https://static.wixstatic.com/media/204769_2c02264f965f4264a596f095111344f2~mv2.jpg/v1/fill/w_560,h_294,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Puppys%203.jpg",
+                "summary": "Loves to sit on your lap and have cuddles and will require regular grooming.",
                 "_createdOn": 1617194295490
             }
         },
