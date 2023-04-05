@@ -5,7 +5,7 @@ export function Catalog() {
     const { pets } = usePetContext();
     
     return (
-        <section className="page-section">
+        <section className="page-section bg-primary">
             <div className="container px-4 px-lg-5">
                 <h2 className="text-center mt-0">Find your best friend</h2>
                 <hr className="divider" />

@@ -5,7 +5,7 @@ import { useService } from '../../hooks/useService';
 import { AuthContext } from "../../contexts/AuthContext";
 
 export function Details() {
-    const { userId } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const { petId } = useParams();
     const [pet, setPet] = useState({});
@@ -29,7 +29,7 @@ export function Details() {
         navigate('/catalog');
     };
     return (
-        <section className="page-section vh-75">
+        <section className="page-section bg-primary vh-75">
             <div className="container py-5 h-75">
                 <div className="row d-flex justify-content-center align-items-center h-75">
                     <div className="col col-xl-10">
@@ -47,10 +47,12 @@ export function Details() {
                                         <p>{pet.weight}</p>
                                         <p>{pet.summary}</p>
                                         <p></p>
-                                        <div className="d-grid gap-4 d-md-block">
-                                            <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
-                                            <button className="btn btn-secondary btn-xl">Delete</button>
-                                        </div>
+                                        {isAuthenticated &&
+                                            <div className="d-grid gap-4 d-md-block">
+                                                <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
+                                                <button className="btn btn-secondary btn-xl">Delete</button>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>
