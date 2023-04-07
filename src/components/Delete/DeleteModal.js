@@ -1,24 +1,21 @@
-import { Modal, Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 export function DeleteModal({
     show,
-    onDeleteSubmit,
-    onDeleteCancel,
+    onClose,
+    onSubmitDelete
 }) {
     return (
-        <div className="modal show" style={{ display: 'block', position: 'initial' }}>
-            <Modal.Dialog show={show} onEscapeKeyDown={onDeleteCancel} onBlur={onDeleteCancel}>
-                <Modal.Header closeButton onHide={onDeleteCancel}>
-                    <Modal.Title>Delete</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>Are you sure you want to delete the pet?</p>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={onDeleteCancel}>Cancel</Button>
-                    <Button variant="primary" onClick={onDeleteSubmit}>Delete</Button>
-                </Modal.Footer>
-            </Modal.Dialog>
-        </div>
+        <Modal show={show} onHide={onClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Delete pet</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to delete the pet?</Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary"onClick={onClose}>Close</Button>
+                <Button variant="primary" onClick={onSubmitDelete}>Delete</Button>
+            </Modal.Footer>
+        </Modal>
     );
 }

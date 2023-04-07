@@ -1,18 +1,18 @@
-import { useState, useEffect, useContext } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { petServiceFactory } from '../../services/petService';
 import { useService } from '../../hooks/useService';
 import { useAuthContext } from "../../contexts/AuthContext";
 import { usePetContext } from "../../contexts/PetContext";
+import { DeleteModal } from "../Delete/DeleteModal";
 
 export function Details() {
-    const { userId, isAuthenticated } = useAuthContext();
-    const [username, setUsername] = useState('');
+    const [showDelete, setShowDelete] = useState(false);
+    const { isAuthenticated } = useAuthContext();
     const { petId } = useParams();
-    const { deletePet } = usePetContext();
+    const { onDeleteSubmit } = usePetContext();
     const [pet, setPet] = useState({});
     const petService = useService(petServiceFactory);
-    const navigate = useNavigate();
 
     useEffect(() => {
         petService.getOne(petId)
@@ -21,16 +21,13 @@ export function Details() {
             })
     }, [petId])
 
-    const onDeleteClick = async () => {
-        // eslint-disable-next-line no-restricted-globals
-        const result = confirm(`Are you sure you want to delete ${pet.name}`);
+    const handleClose = () => setShowDelete(false);
+    const handleShow = () => setShowDelete(true)
+    const handleSubmitDelete = () => {
+        onDeleteSubmit(pet._id);
+        setShowDelete(false);
+    }
 
-        if (result) {
-            await petService.delete(pet._id);
-            deletePet(pet._id);
-            navigate('/catalog');
-        }
-    };
     return (
         <section className="page-section bg-primary vh-75">
             <div className="container py-5 h-75">
@@ -49,12 +46,14 @@ export function Details() {
                                         <p>{pet.age}</p>
                                         <p>{pet.weight}</p>
                                         <p>{pet.summary}</p>
-                                        <p></p>
                                         {isAuthenticated &&
-                                            <div className="d-grid gap-4 d-md-block">
-                                                <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
-                                                <button className="btn btn-secondary btn-xl">Delete</button>
-                                            </div>
+                                            <>
+                                                <div className="d-grid gap-4 d-md-block">
+                                                    <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
+                                                    <button className="btn btn-secondary btn-xl" onClick={handleShow}>Delete</button>
+                                                </div>
+                                                <DeleteModal show={showDelete} onClose={handleClose} onSubmitDelete={handleSubmitDelete}/>
+                                            </>
                                         }
                                     </div>
                                 </div>

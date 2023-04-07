@@ -1,8 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { petServiceFactory } from '../services/petService';
-import { DeleteModal } from '../components/Delete/DeleteModal';
 
 export const PetContext = createContext();
 
@@ -11,7 +9,6 @@ export const PetProvider = ({
 }) => {
     const navigate = useNavigate();
     const [pets, setPets] = useState([]);
-    const [showDelete, setShowDelete] = useState(false);
     const petService = petServiceFactory();
 
     useEffect(() => {
@@ -37,23 +34,12 @@ export const PetProvider = ({
         navigate(`/catalog/${values._id}`);
     };
 
-
-    const deletePet = (petId) => {
-        const onDeleteClick = () => {
-            setShowDelete(true);
-            <DeleteModal show={showDelete} onDeleteSubmit={onDeleteSubmit} onDeleteCancel={onDeleteCancel} />
-        }
-        const onDeleteSubmit = () => {
-            const result = petService.delete(petId);
-            setShowDelete(false);
-            setPets(state => state.filter(pet => pet._id !== petId));
-        }
-        const onDeleteCancel = () => {
-            setShowDelete(false);
-        }
-        return onDeleteClick;
-    };
-
+    const onDeleteSubmit = (petId) => {
+        const result = petService.delete(petId);
+        setPets(state => state.filter(pet => pet._id !== petId));
+        navigate('/catalog');
+    }
+    
     const getPet = (petId) => {
         return pets.find(pet => pet._id === petId);
     };
@@ -62,7 +48,7 @@ export const PetProvider = ({
         pets,
         onAddSubmit,
         onEditSubmit,
-        deletePet,
+        onDeleteSubmit,
         getPet,
     };
 
