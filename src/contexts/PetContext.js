@@ -7,6 +7,7 @@ export const PetContext = createContext();
 export const PetProvider = ({
     children,
 }) => {
+    const [error, setError] = useState("");
     const navigate = useNavigate();
     const [pets, setPets] = useState([]);
     const petService = petServiceFactory();
@@ -19,33 +20,46 @@ export const PetProvider = ({
     }, []);
 
     const onAddSubmit = async (data) => {
-        const newPet = await petService.create(data);
-
-        setPets(state => [...state, newPet]);
-
-        navigate('/catalog');
+        try {
+            const newPet = await petService.create(data);
+            setPets(state => [...state, newPet]);
+            navigate('/catalog');
+        } catch (err) {
+            setError(err.message ? err.message : err);
+        }
     };
 
     const onEditSubmit = async (values) => {
-        const result = await petService.edit(values._id, values);
-
-        setPets(state => state.map(x => x._id === values._id ? result : x))
-
-        navigate(`/catalog/${values._id}`);
+        try {
+            const result = await petService.edit(values._id, values);
+            setPets(state => state.map(x => x._id === values._id ? result : x))
+            navigate(`/catalog/${values._id}`);
+        } catch (err) {
+            setError(err.message ? err.message : err);
+        }
     };
 
     const onDeleteSubmit = (petId) => {
-        const result = petService.delete(petId);
-        setPets(state => state.filter(pet => pet._id !== petId));
-        navigate('/catalog');
+        try {
+            petService.delete(petId);
+            setPets(state => state.filter(pet => pet._id !== petId));
+            navigate('/catalog');
+        } catch (err) {
+            setError(err.message ? err.message : err);
+        }
     }
-    
+
     const getPet = (petId) => {
-        return pets.find(pet => pet._id === petId);
+        try {
+            return pets.find(pet => pet._id === petId);
+        } catch (err) {
+            setError(err.message ? err.message : err);
+        }
     };
 
     const context = {
         pets,
+        error,
         onAddSubmit,
         onEditSubmit,
         onDeleteSubmit,
