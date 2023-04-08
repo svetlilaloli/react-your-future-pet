@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { usePetContext } from '../../contexts/PetContext';
 import { useForm } from '../../hooks/useForm';
 import validate from '../common/PetFormValidationRules';
@@ -5,6 +6,7 @@ import validate from '../common/PetFormValidationRules';
 export function Add() {
     const { error, onAddSubmit } = usePetContext();
     const { values, errors, handleChange, handleSubmit } = useForm(onAddSubmit, validate);
+    const navigate = useNavigate();
     
     return (
         <section className="page-section bg-primary">
@@ -89,6 +91,7 @@ export function Add() {
                                             )}
                                         </div>
                                         <button className="btn btn-primary btn-xl" type="submit">Add</button>
+                                        <button className="btn btn-secondary btn-xl" type="submit" onClick={() => navigate(-1)}>Cancel</button>
                                         {error && <p className="text-danger">{error}</p>}
                                     </form>
                                 </div>

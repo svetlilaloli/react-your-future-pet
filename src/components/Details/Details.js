@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { petServiceFactory } from '../../services/petService';
 import { useService } from '../../hooks/useService';
 import { useAuthContext } from "../../contexts/AuthContext";
@@ -13,6 +13,7 @@ export function Details() {
     const { onDeleteSubmit } = usePetContext();
     const [pet, setPet] = useState({});
     const petService = useService(petServiceFactory);
+    const navigate = useNavigate();
 
     useEffect(() => {
         petService.getOne(petId)
@@ -46,15 +47,18 @@ export function Details() {
                                         <p>{pet.age}</p>
                                         <p>{pet.weight}</p>
                                         <p>{pet.summary}</p>
-                                        {isAuthenticated &&
-                                            <>
-                                                <div className="d-grid gap-4 d-md-block">
+                                        <div className="d-grid gap-4 d-md-block">
+                                            {isAuthenticated &&
+                                                <>
+                                                    {/* <div className="d-grid gap-4 d-md-block"> */}
                                                     <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
                                                     <button className="btn btn-secondary btn-xl" onClick={handleShow}>Delete</button>
-                                                </div>
-                                                <DeleteModal show={showDelete} onClose={handleClose} onSubmitDelete={handleSubmitDelete}/>
-                                            </>
-                                        }
+                                                    {/* </div> */}
+                                                    <DeleteModal show={showDelete} onClose={handleClose} onSubmitDelete={handleSubmitDelete} />
+                                                </>
+                                            }
+                                            <button className="btn btn-secondary btn-xl" type="submit" onClick={() => navigate(-1)}>Back</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

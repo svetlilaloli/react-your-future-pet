@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { petServiceFactory } from '../../../services/petService';
 import { usePetContext } from '../../../contexts/PetContext';
 import { useForm } from '../../../hooks/useForm';
@@ -11,6 +11,7 @@ export function Edit() {
     const { petId } = useParams();
     const petService = useService(petServiceFactory);
     const { values, errors, handleChange, handleSubmit, updateValues } = useForm(onEditSubmit, validate);
+    const navigate = useNavigate();
 
     useEffect(() => {
         petService.getOne(petId)
@@ -102,6 +103,7 @@ export function Edit() {
                                             )}
                                         </div>
                                         <button className="btn btn-primary btn-xl" type="submit">Edit</button>
+                                        <button className="btn btn-secondary btn-xl" type="submit" onClick={() => navigate(-1)}>Cancel</button>
                                         {error && <p className="text-danger">{error}</p>}
                                     </form>
                                 </div>
