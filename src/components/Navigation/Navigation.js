@@ -12,8 +12,7 @@ export function Navigation() {
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ms-auto my-2 my-lg-0">
                         {isAuthenticated &&
-                            // <li className="nav-item"><Link className="nav-link disabled">Hi {userEmail.split("@")[0]}</Link></li>
-                            <span>Hi {userEmail.split("@")[0]}</span>
+                            <span className="text-light">Hi {userEmail.split("@")[0]}</span>
                         }
                         <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/catalog">Find a pet</Link></li>

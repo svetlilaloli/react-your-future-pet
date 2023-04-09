@@ -7,9 +7,9 @@ export function Catalog() {
     return (
         <section className="page-section bg-primary">
             <div className="container px-4 px-lg-5">
-                <h2 className="text-center mt-0">Find your best friend</h2>
-                <hr className="divider" />
-                <div className="row gx-4 gx-lg-5 animals-dashboard">
+                <h2 className="text-white text-center mt-0">Find your best friend</h2>
+                <hr className="divider divider-light" />
+                <div className="row gx-4 gx-lg-5">
 
                     {pets.map((pet) => <CatalogItem key={pet._id} {...pet} />)}
 

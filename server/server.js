@@ -1350,7 +1350,7 @@
                 "breed": "American Curl",
                 "age": "4 year",
                 "weight": "3 kg",
-                "image": "https://thumbs.dreamstime.com/b/american-curl-kitten-months-old-sitting-looking-c-american-curl-kitten-months-old-sitting-looking-camera-103837703.jpg",
+                "image": "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRIqS7hWziLwkUlb_6QIU3AmEwp08TFaE3fi0bE_46OPGECaRGIdAhLUvDV3NKIiY0qdab8__hQaPAGCOA",
                 "summary": "Athena is best suited to a home with no other animals or any children as she is very nervous of new people so a quiet home would be best.",
                 "_createdOn": 1617194210928
             },

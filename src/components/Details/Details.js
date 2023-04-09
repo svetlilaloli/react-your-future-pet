@@ -50,14 +50,12 @@ export function Details() {
                                         <div className="d-grid gap-4 d-md-block">
                                             {isAuthenticated &&
                                                 <>
-                                                    {/* <div className="d-grid gap-4 d-md-block"> */}
                                                     <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
                                                     <button className="btn btn-secondary btn-xl" onClick={handleShow}>Delete</button>
-                                                    {/* </div> */}
                                                     <DeleteModal show={showDelete} onClose={handleClose} onSubmitDelete={handleSubmitDelete} />
                                                 </>
                                             }
-                                            <button className="btn btn-secondary btn-xl" type="submit" onClick={() => navigate(-1)}>Back</button>
+                                            <button className="btn btn-secondary btn-xl" type="submit" onClick={() => navigate('/catalog')}>Back</button>
                                         </div>
                                     </div>
                                 </div>
