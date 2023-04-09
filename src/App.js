@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { PetProvider } from './contexts/PetContext';
 
@@ -30,6 +30,7 @@ export default function App() {
                     <Route path='/catalog/:petId' element={<Details />} />
                     <Route path='/catalog/:petId/edit' element={<RouteGuard><Edit /></RouteGuard>} />
                     <Route path='/logout' element={<Logout />} />
+                    <Route path='*' element={<Navigate to='/' />} />
                 </Routes>
                 <Footer />
             </PetProvider>
