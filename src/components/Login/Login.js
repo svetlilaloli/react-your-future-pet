@@ -1,3 +1,4 @@
+import styles from './Login.module.css';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
@@ -8,43 +9,41 @@ export function Login() {
     const { values, errors, handleChange, handleSubmit } = useForm(onLoginSubmit, validate);
 
     return (
-        <section className="page-section bg-primary">
-            <div className="container py-5 h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
-                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div className="card bg-light">
-                            <div className="card-body p-5 text-center">
-                                <div className="mb-md-5 mt-md-4">
-                                    <h2 className="fw-normal mb-4">Login</h2>
-                                    <form action="post" onSubmit={handleSubmit}>
-                                        <div className="form-outline form-white mb-4">
-                                            <input type="email"
-                                                id="email"
-                                                className={`input ${errors.email && 'is-invalid'} form-control`}
-                                                placeholder="Email"
-                                                name="email"
-                                                value={values.email || ''}
-                                                onChange={handleChange} />
-                                            {errors.email && (
-                                                <p className="text-danger">{errors.email}</p>
-                                            )}
-                                        </div>
-                                        <div className="form-outline form-white mb-4">
-                                            <input type="password"
-                                                id="password"
-                                                className={`input ${errors.password && 'is-invalid'} form-control`}
-                                                placeholder="Password"
-                                                name="password"
-                                                value={values.password || ''}
-                                                onChange={handleChange} />
-                                            {errors.password && (
-                                                <p className="text-danger">{errors.password}</p>
-                                            )}
-                                        </div>
-                                        <button className="btn btn-primary btn-xl" type="submit">Login</button>
-                                        {error && <p className="text-danger">{error}</p>}
-                                    </form>
-                                </div>
+        <section className={styles.section}>
+            <div className={styles.container}>
+                <div className={styles.row}>
+                    <div className={styles.col}>
+                        <div className={styles.card}>
+                            <div className={styles.cardBody}>
+                                <h2 className={styles.h2}>Login</h2>
+                                <form action="post" onSubmit={handleSubmit}>
+                                    <div className={styles.mb4}>
+                                        <input type="text"
+                                            id="email"
+                                            className={`${errors.email && styles.isInvalid} ${styles.formControl}`}
+                                            placeholder="Email"
+                                            name="email"
+                                            value={values.email || ''}
+                                            onChange={handleChange} />
+                                        {errors.email && (
+                                            <p className={styles.textDanger}>{errors.email}</p>
+                                        )}
+                                    </div>
+                                    <div className={styles.mb4}>
+                                        <input type="password"
+                                            id="password"
+                                            className={`${errors.password && styles.isInvalid} ${styles.formControl}`}
+                                            placeholder="Password"
+                                            name="password"
+                                            value={values.password || ''}
+                                            onChange={handleChange} />
+                                        {errors.password && (
+                                            <p className={styles.textDanger}>{errors.password}</p>
+                                        )}
+                                    </div>
+                                    <button className={styles.btn} type="submit">Login</button>
+                                    {error && <p className={styles.textDanger}>{error}</p>}
+                                </form>
                             </div>
                         </div>
                     </div>
