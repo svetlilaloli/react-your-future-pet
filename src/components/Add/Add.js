@@ -30,7 +30,7 @@ export function Add() {
                                             <p className={styles.textDanger}>{errors.name}</p>
                                         )}
                                     </div>
-                                    <div className="form-outline form-white mb-4">
+                                    <div className={styles.mb4}>
                                         <input type="text"
                                             id="breed"
                                             className={`${errors.breed && styles.isInvalid} ${styles.formControl}`}
@@ -42,7 +42,7 @@ export function Add() {
                                             <p className={styles.textDanger}>{errors.breed}</p>
                                         )}
                                     </div>
-                                    <div className="form-outline form-white mb-4">
+                                    <div className={styles.mb4}>
                                         <input type="text"
                                             id="age"
                                             className={`${errors.age && styles.isInvalid} ${styles.formControl}`}
@@ -54,7 +54,7 @@ export function Add() {
                                             <p className={styles.textDanger}>{errors.age}</p>
                                         )}
                                     </div>
-                                    <div className="form-outline form-white mb-4">
+                                    <div className={styles.mb4}>
                                         <input type="text"
                                             id="weight"
                                             className={`${errors.weight && styles.isInvalid} ${styles.formControl}`}
@@ -66,7 +66,7 @@ export function Add() {
                                             <p className={styles.textDanger}>{errors.weight}</p>
                                         )}
                                     </div>
-                                    <div className="form-outline form-white mb-4">
+                                    <div className={styles.mb4}>
                                         <input type="text"
                                             id="image"
                                             className={`${errors.image && styles.isInvalid} ${styles.formControl}`}
@@ -78,7 +78,7 @@ export function Add() {
                                             <p className={styles.textDanger}>{errors.image}</p>
                                         )}
                                     </div>
-                                    <div className="form-outline form-white mb-4">
+                                    <div className={styles.mb4}>
                                         <textarea rows="5"
                                             id="summary"
                                             className={`${errors.summary && styles.isInvalid} ${styles.formControl}`}
