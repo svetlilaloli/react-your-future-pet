@@ -4,7 +4,7 @@ export function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
-                <div className={styles.text}>Copyright &copy; 2023 - Your Future Pets</div>
+                <div className={styles.text}>Copyright &copy; 2023 - Your Future Pet</div>
             </div>
         </footer>
     );
