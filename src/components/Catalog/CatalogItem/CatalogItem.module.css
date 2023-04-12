@@ -1,0 +1,84 @@
+@import url("../../common/Style.module.css");
+
+.col {
+    flex: 0 0 auto;
+    text-align: center !important;
+    width: 25% !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.cardImg {
+    width: 100%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.cardBody {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.cardTitle {
+    margin-bottom: 0.5rem;
+    margin-top: auto !important;
+}
+
+.btn {
+    display: inline-block;
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #f4623a;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    border-radius: 10rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-top: auto !important;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #cf5331;
+}
+
+.btn:focus {
+    color: #fff;
+    background-color: #cf5331;
+    box-shadow: 0 0 0 0.25rem rgba(246, 122, 88, 0.5);
+}
+
+.btn:active {
+    color: #fff;
+    background-color: #c34e2e;
+}
+
+.btn:active:focus {
+    box-shadow: 0 0 0 0.25rem rgba(246, 122, 88, 0.5);
+}

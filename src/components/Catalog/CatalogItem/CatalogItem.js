@@ -1,3 +1,4 @@
+import styles from './CatalogItem.module.css';
 import { Link } from "react-router-dom";
 
 export function CatalogItem({
@@ -6,12 +7,12 @@ export function CatalogItem({
     image
 }) {
     return (
-        <div className="col-md-6 text-center w-25 mb-4">
-            <div className="card w-100 h-100">
-                <img className="card-img-top" src={image} alt="pet-image" />
-                <div className="card-body d-flex flex-column">
-                    <h3 className="card-title mt-auto">{name}</h3>
-                    <Link className="btn btn-primary btn-xl mt-auto" to={`/catalog/${_id}`}>Details</Link>
+        <div className={styles.col}>
+            <div className={styles.card}>
+                <img className={styles.cardImg} src={image} alt="pet-image" />
+                <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{name}</h3>
+                    <Link className={styles.btn} to={`/catalog/${_id}`}>Details</Link>
                 </div>
             </div>
         </div>
