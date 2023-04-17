@@ -1,3 +1,4 @@
+import styles from './Details.module.css';
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { petServiceFactory } from '../../services/petService';
@@ -30,32 +31,32 @@ export function Details() {
     }
 
     return (
-        <section className="page-section bg-primary vh-75">
-            <div className="container py-5 h-75">
-                <div className="row d-flex justify-content-center align-items-center h-75">
-                    <div className="col col-xl-10">
-                        <div className="card" style={{ borderRadius: '1rem' }}>
-                            <div className="row g-0">
-                                <div className="col-md-6 col-lg-5 d-none d-md-block">
-                                    <img src={pet.image} alt="pet image" className="img-fluid" style={{ borderRadius: '1rem 0 0 1rem' }} />
+        <section className={styles.section}>
+            <div className={styles.container}>
+                <div className={`${styles.row} ${styles.text}`}>
+                    <div className={styles.col}>
+                        <div className={styles.card}>
+                            <div className={`${styles.row} ${styles.g0}`}>
+                                <div className={styles.colLg5}>
+                                    <img src={pet.image} alt={pet.name} className={styles.imgFluid} />
                                 </div>
-                                <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                                    <div className="card-body px-4 p-lg-5">
-                                        <h3 className="mb-3 pb-3">Details</h3>
+                                <div className={styles.colLg7}>
+                                    <div className={styles.cardBody}>
+                                        <h3 className={styles.h3}>Details</h3>
                                         <p>{pet.name}</p>
                                         <p>{pet.breed}</p>
                                         <p>{pet.age}</p>
                                         <p>{pet.weight}</p>
                                         <p>{pet.summary}</p>
-                                        <div className="d-grid gap-4 d-md-block">
+                                        <div className={styles.buttonGroup}>
                                             {isAuthenticated &&
                                                 <>
-                                                    <Link to={`/catalog/${pet._id}/edit`} className="btn btn-primary btn-xl">Edit</Link>
-                                                    <button className="btn btn-secondary btn-xl" onClick={handleShow}>Delete</button>
+                                                    <Link to={`/catalog/${pet._id}/edit`} className={`${styles.btn} ${styles.btnPrimary}`}>Edit</Link>
+                                                    <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={handleShow}>Delete</button>
                                                     <DeleteModal show={showDelete} onClose={handleClose} onSubmitDelete={handleSubmitDelete} />
                                                 </>
                                             }
-                                            <button className="btn btn-secondary btn-xl" type="submit" onClick={() => navigate('/catalog')}>Back</button>
+                                            <button className={`${styles.btn} ${styles.btnSecondary}`} type="submit" onClick={() => navigate('/catalog')}>Back</button>
                                         </div>
                                     </div>
                                 </div>

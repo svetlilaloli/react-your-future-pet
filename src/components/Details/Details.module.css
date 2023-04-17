@@ -1,0 +1,224 @@
+@import url("../common/Style.module.css");
+
+.section {
+    padding: 8rem 0;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+    height: 75% !important;
+}
+
+.container {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    height: 75% !important;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex !important;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+.text {
+    align-items: center !important;
+    justify-content: center !important;
+    height: 75% !important;
+}
+
+.row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 1rem;
+}
+
+.g0 {
+    --bs-gutter-x: 0;
+}
+
+.colLg5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+}
+
+.imgFluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.colLg7 {
+    flex: 0 0 auto;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.cardBody {
+    flex: 1 1 auto;
+    padding: 3rem !important;
+}
+
+.h3 {
+    margin-bottom: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.buttonGroup {
+    gap: 1.5rem !important;
+}
+
+.btn {
+    display: inline-block;
+    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.btnPrimary {
+    color: #fff;
+    background-color: #f4623a;
+}
+
+.btnPrimary:hover {
+    color: #fff;
+    background-color: #cf5331;
+}
+
+.btnPrimary:focus {
+    color: #fff;
+    background-color: #cf5331;
+    box-shadow: 0 0 0 0.25rem rgba(246, 122, 88, 0.5);
+}
+
+.btnPrimary:active {
+    color: #fff;
+    background-color: #c34e2e;
+}
+
+.btnPrimary:active:focus {
+    box-shadow: 0 0 0 0.25rem rgba(246, 122, 88, 0.5);
+}
+
+.btnSecondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.btnSecondary:hover {
+    color: #fff;
+    background-color: #5c636a;
+}
+
+.btnSecondary:focus {
+    color: #fff;
+    background-color: #5c636a;
+    box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+}
+
+.btnSecondary:active {
+    color: #fff;
+    background-color: #565e64;
+}
+
+.btnSecondary:active:focus {
+    box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+
+    .col {
+        flex: 1 0 0%;
+    }
+
+    .colLg5 {
+        display: none !important;
+    }
+
+    .buttonGroup {
+        display: grid !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .colLg5,
+    .buttonGroup {
+        display: block !important;
+    }
+
+    .colLg7 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .colLg7 {
+        width: 58.33333333%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .col {
+        flex: 0 0 auto;
+        width: 83.33333333%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
