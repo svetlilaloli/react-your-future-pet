@@ -17,6 +17,13 @@
     padding-left: 3rem !important;
 }
 
+.text {
+    font-size: 0.875em;
+    text-align: center !important;
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+}
+
 @media (min-width: 576px) {
 
     .container {
@@ -50,11 +57,4 @@
     .container {
         max-width: 1320px;
     }
-}
-
-.text {
-    font-size: 0.875em;
-    text-align: center !important;
-    --bs-text-opacity: 1;
-    color: #6c757d !important;
 }
