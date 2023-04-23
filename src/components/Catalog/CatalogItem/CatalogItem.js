@@ -11,7 +11,7 @@ export function CatalogItem({
             <div className={styles.card}>
                 <img className={styles.cardImg} src={image} alt="pet-image" />
                 <div className={styles.cardBody}>
-                    <h3 className={styles.cardTitle}>{name}</h3>
+                    <h3 className={styles.h3}>{name}</h3>
                     <Link className={styles.btn} to={`/catalog/${_id}`}>Details</Link>
                 </div>
             </div>
