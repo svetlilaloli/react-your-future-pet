@@ -1,29 +1,42 @@
-import { useContext } from 'react';
+import styles from './Navigation.module.css';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 export function Navigation() {
     const { isAuthenticated, userEmail } = useContext(AuthContext);
+    const [toggle, setToggle] = useState(false);
+
+    function toggleNav() {
+        setToggle(!toggle);
+    }
+
+    function hideNav() {
+        setToggle(false);
+    }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div className="container px-4 px-lg-5">
-                <Link className="navbar-brand" to="/">Your Future Pet</Link>
-                <div className="collapse navbar-collapse" id="navbarResponsive">
-                    <ul className="navbar-nav ms-auto my-2 my-lg-0">
+        <nav className={styles.navbar} id="mainNav">
+            <div className={styles.container}>
+                <Link className={styles.brand} to="/">Your Future Pet</Link>
+                <button class={styles.navbarToggler} onClick={toggleNav} type="button">
+                    <span class={styles.navbarTogglerIcon}></span>
+                </button>
+                <div className={styles.navbarCollapse} style={{ display: toggle ? 'block' : 'none' }}>
+                    <ul className={styles.navbarNav}>
                         {isAuthenticated &&
-                            <span className="text-light">Hi {userEmail.split("@")[0]}</span>
+                            <span className={styles.textLight}>Hi {userEmail.split("@")[0]}</span>
                         }
-                        <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/catalog">Find a pet</Link></li>
+                        <li onClick={hideNav}><Link className={styles.navLink} to="/about">About</Link></li>
+                        <li onClick={hideNav}><Link className={styles.navLink} to="/catalog">Find a pet</Link></li>
                         {!isAuthenticated &&
-                            <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
+                            <li onClick={hideNav}><Link className={styles.navLink} to="/login">Login</Link></li>
                         }
                         {isAuthenticated &&
                             <>
-                                <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>
-                                <li className="nav-item"><Link className="nav-link" to="/add">Add a new pet</Link></li>
-                                <li className="nav-item"><Link className="nav-link" to="/logout">Logout</Link></li>
+                                <li onClick={hideNav}><Link className={styles.navLink} to="/register">Register</Link></li>
+                                <li onClick={hideNav}><Link className={styles.navLink} to="/add">Add a new pet</Link></li>
+                                <li onClick={hideNav}><Link className={styles.navLink} to="/logout">Logout</Link></li>
                             </>
                         }
                     </ul>
