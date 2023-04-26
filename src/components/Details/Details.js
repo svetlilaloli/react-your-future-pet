@@ -5,10 +5,10 @@ import { petServiceFactory } from '../../services/petService';
 import { useService } from '../../hooks/useService';
 import { useAuthContext } from "../../contexts/AuthContext";
 import { usePetContext } from "../../contexts/PetContext";
-import { DeleteModal } from "../Delete/DeleteModal";
+import { DeleteModal } from "./Delete/DeleteModal";
 
 export function Details() {
-    const [showDelete, setShowDelete] = useState(false);
+    const [open, setOpen] = useState(false);
     const { isAuthenticated } = useAuthContext();
     const { petId } = useParams();
     const { onDeleteSubmit } = usePetContext();
@@ -23,11 +23,11 @@ export function Details() {
             })
     }, [petId])
 
-    const handleClose = () => setShowDelete(false);
-    const handleShow = () => setShowDelete(true)
-    const handleSubmitDelete = () => {
+    const handleCancel = () => setOpen(false);
+    const handleOpen = () => setOpen(true)
+    const handleConfirm = () => {
         onDeleteSubmit(pet._id);
-        setShowDelete(false);
+        setOpen(false);
     }
 
     return (
@@ -52,8 +52,8 @@ export function Details() {
                                             {isAuthenticated &&
                                                 <>
                                                     <Link to={`/catalog/${pet._id}/edit`} className={`${styles.btn} ${styles.btnPrimary}`}>Edit</Link>
-                                                    <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={handleShow}>Delete</button>
-                                                    <DeleteModal show={showDelete} onClose={handleClose} onSubmitDelete={handleSubmitDelete} />
+                                                    <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={handleOpen}>Delete</button>
+                                                    {open && <DeleteModal onCancel={handleCancel} onConfirm={handleConfirm} />}
                                                 </>
                                             }
                                             <button className={`${styles.btn} ${styles.btnSecondary}`} type="submit" onClick={() => navigate('/catalog')}>Back</button>
