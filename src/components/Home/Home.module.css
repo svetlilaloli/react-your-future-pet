@@ -54,7 +54,7 @@ hr.divider {
     height: 0.2rem;
     max-width: 3.25rem;
     margin: 1.5rem auto;
-    background-color: #f4623a;
+    background-color: var(--bs-primary);
     opacity: 1;
     border: 0;
 }
@@ -77,8 +77,8 @@ hr.divider {
     -ms-user-select: none;
     user-select: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    color: #fff;
-    background-color: #f4623a;
+    color: var(--bs-white);
+    background-color: var(--bs-primary);
     padding: 1.25rem 2.25rem;
     font-size: 0.85rem;
     font-weight: 700;
@@ -88,19 +88,19 @@ hr.divider {
 }
 
 .btn:hover {
-    color: #fff;
-    background-color: #cf5331;
+    color: var(--bs-white);
+    background-color: var(--bs-primary-hover);
 }
 
 .btn:focus {
-    color: #fff;
-    background-color: #cf5331;
+    color: var(--bs-white);
+    background-color: var(--bs-primary-hover);
     box-shadow: 0 0 0 0.25rem rgba(246, 122, 88, 0.5);
 }
 
 .btn:active {
-    color: #fff;
-    background-color: #c34e2e;
+    color: var(--bs-white);
+    background-color: var(--bs-primary-hover);
 }
 
 .btn:active:focus {

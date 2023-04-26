@@ -1,5 +1,3 @@
-@import url("../common/Style.module.css");
-
 .section {
     padding: 8rem 0;
     --bs-bg-opacity: 1;
@@ -19,14 +17,19 @@
     color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
     text-align: center !important;
     margin-top: 0 !important;
+    margin-bottom: 0.5rem;
+    font-family: var(--bs-font-sans-serif);
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 hr.divider {
     height: 0.2rem;
     max-width: 3.25rem;
     margin: 1.5rem auto;
-    background-color: #fff;
+    background-color: var(--bs-white);
     opacity: 1;
+    border: 0;
 }
 
 .row {
@@ -92,6 +95,10 @@ hr.divider {
 @media (min-width: 1200px) {
     .container {
         max-width: 1140px;
+    }
+
+    .h2 {
+        font-size: 2rem;
     }
 }
 

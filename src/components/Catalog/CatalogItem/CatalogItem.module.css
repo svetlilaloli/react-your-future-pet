@@ -1,5 +1,3 @@
-@import url("../../common/Style.module.css");
-
 .col {
     flex: 0 0 auto;
     text-align: center !important;
@@ -13,7 +11,7 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: var(--bs-white);
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
@@ -34,18 +32,21 @@
     flex-direction: column !important;
 }
 
-.cardTitle {
+.h3 {
+    font-family: var(--bs-font-sans-serif);
+    font-weight: 500;
+    line-height: 1.2;
     margin-bottom: 0.5rem;
     margin-top: auto !important;
 }
 
 .btn {
     display: inline-block;
-    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--bs-font-sans-serif);
     font-weight: 700;
     line-height: 1.5;
-    color: #fff;
-    background-color: #f4623a;
+    color: var(--bs-white);
+    background-color: var(--bs-primary);
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -64,19 +65,19 @@
 }
 
 .btn:hover {
-    color: #fff;
-    background-color: #cf5331;
+    color: var(--bs-white);
+    background-color: var(--bs-primary-hover);
 }
 
 .btn:focus {
-    color: #fff;
-    background-color: #cf5331;
+    color: var(--bs-white);
+    background-color: var(--bs-primary-hover);
     box-shadow: 0 0 0 0.25rem rgba(246, 122, 88, 0.5);
 }
 
 .btn:active {
-    color: #fff;
-    background-color: #c34e2e;
+    color: var(--bs-white);
+    background-color: var(--bs-primary-hover);
 }
 
 .btn:active:focus {
@@ -98,5 +99,11 @@
 @media (min-width: 992px) {
     .col {
         width: 25% !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .h3 {
+        font-size: 1.75rem;
     }
 }

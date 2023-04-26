@@ -11,12 +11,12 @@
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    background-color: #fff;
+    background-color: var(--bs-white);
     transition: background-color 0.2s ease;
 }
 
 .navbar:hover {
-    color: #fff;
+    color: var(--bs-white);
 }
 
 .navbar>.container {
@@ -143,7 +143,7 @@
     }
 
     .brand:hover {
-        color: #fff;
+        color: var(--bs-white);
     }
 
     .navbarToggler {
@@ -179,7 +179,7 @@
     }
 
     .navLink:hover {
-        color: #fff;
+        color: var(--bs-white);
     }
 
     li:last-child .navLink {
