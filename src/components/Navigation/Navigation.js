@@ -19,8 +19,8 @@ export function Navigation() {
         <nav className={styles.navbar} id="mainNav">
             <div className={styles.container}>
                 <Link className={styles.brand} to="/">Your Future Pet</Link>
-                <button class={styles.navbarToggler} onClick={toggleNav} type="button">
-                    <span class={styles.navbarTogglerIcon}></span>
+                <button className={styles.navbarToggler} onClick={toggleNav} type="button">
+                    <span className={styles.navbarTogglerIcon}></span>
                 </button>
                 <div className={styles.navbarCollapse} style={{ display: toggle ? 'block' : 'none' }}>
                     <ul className={styles.navbarNav}>
