@@ -28,7 +28,6 @@ export function useForm (callback, validate) {
     const updateValues = (newValues) => {
         setErrors(validate(newValues));    
         setValues(newValues);
-        //setIsSubmitting(true);
     };
         
     return {
