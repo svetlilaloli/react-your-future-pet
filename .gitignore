@@ -3,6 +3,4 @@ build
 .vscode
 .firebase
 .firebaserc
-.github
 firebase.json
-
