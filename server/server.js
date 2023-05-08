@@ -1361,7 +1361,7 @@
                 "age": "3 years",
                 "weight": "7 kg",
                 "image": "https://www.montego.co.za/wp-content/uploads/2018/01/blog-thumbnail-two-pug.jpg",
-                "summary": "He would be best suited in an adult only home where the owner is around a lot to spend time with him. Apollo is an intelligent boy who does already know basic commands and loves to play with balls.",
+                "summary": "He would be best suited in an adult-only home where the owner is around a lot to spend time with him. Ralph is an intelligent boy who does already know basic commands and loves to play with balls.",
                 "_createdOn": 1617194295474
             },
             "136777f5-3277-42ad-b874-76d043b069cb": {
