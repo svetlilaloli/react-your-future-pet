@@ -7,7 +7,7 @@ export function DeleteModal({
     return (
         <>
             <div className={`${styles.fade} ${styles.modalBackdrop} ${styles.show}`}></div>
-            <div className={`${styles.fade} ${styles.modal} ${styles.show}`} tabindex="-1" role="dialog" 
+            <div className={`${styles.fade} ${styles.modal} ${styles.show}`} tabIndex="-1" role="dialog" 
                 aria-hidden="true" style={{paddingRight: '17px', display: 'block'}}>
                 <div className={styles.modalDialog} role="document">
                     <div className={styles.modalContent}>
